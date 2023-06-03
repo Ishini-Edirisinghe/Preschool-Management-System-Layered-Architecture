@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Window1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #CABBE9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.StartWindowController">
+   <children>
+      <ImageView fitHeight="326.0" fitWidth="609.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/start.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="213.0" layoutY="302.0" onAction="#btnStartOnAction" prefHeight="53.0" prefWidth="174.0" style="-fx-background-radius: 70; -fx-background-color: linear-gradient(to left, #65E3FF, #FB7CD7); }: ;" text="START">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5027624309392265" centerY="0.7677725118483412" radius="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.09692982584238052" green="0.021929824724793434" blue="0.10526315867900848" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="143.0" layoutY="138.0" prefHeight="87.0" prefWidth="320.0" text="PRESCHOOL ">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="29.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="0.7488151658767772">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6619791388511658" green="0.1631944477558136" blue="0.75" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006711409395973154">
+                     <color>
+                        <Color red="0.6619791388511658" green="0.1631944477558136" blue="0.75" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.2057342380285263" green="0.14010721445083618" blue="0.2631579041481018" opacity="0.7900000214576721" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Label alignment="CENTER" layoutX="93.0" layoutY="69.0" prefHeight="113.0" prefWidth="420.0" text="CHATHURA ">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="35.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.9478672985781991" startY="0.4786729857819905">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5431317090988159" green="0.11263401806354523" blue="0.5657894611358643" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+   </children>
+   <effect>
+      <ColorAdjust brightness="-0.46" contrast="0.56" hue="0.05" saturation="0.05" />
+   </effect>
+</AnchorPane>

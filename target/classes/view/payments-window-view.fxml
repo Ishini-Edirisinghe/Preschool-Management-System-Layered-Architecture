@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="606.0" prefWidth="1000.0" styleClass="pane" stylesheets="@../stylesheet/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.PaymentsWindowController">
+   <children>
+      <ImageView fitHeight="653.0" fitWidth="1000.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/2.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="TOP_LEFT" layoutX="13.0" layoutY="14.0" prefHeight="77.0" prefWidth="297.0" styleClass="labelbig" text=" Payments">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="29.0" />
+         </font></Label>
+      <Label layoutX="58.0" layoutY="132.0" styleClass="labeltxt" text="Reference No" />
+      <Label layoutX="58.0" layoutY="184.0" styleClass="labeltxt" text="Date" />
+      <Label layoutX="489.0" layoutY="132.0" styleClass="labeltxt" text="Student Id" />
+      <Label layoutX="489.0" layoutY="184.0" prefHeight="17.0" prefWidth="55.0" styleClass="labeltxt" text="Type" />
+      <TextField fx:id="txtRefNo" layoutX="162.0" layoutY="130.0" onAction="#txtRefNoOnAction" prefHeight="25.0" prefWidth="184.0" promptText="Referance No" />
+      <JFXButton layoutX="163.0" layoutY="246.0" onAction="#btnSaveOnAction" styleClass="btnadd" text="Add" />
+      <JFXButton layoutX="300.0" layoutY="246.0" onAction="#btnDeleteOnAction" styleClass="btndelete" text="Delete" />
+      <JFXButton layoutX="434.0" layoutY="246.0" onAction="#btnUpdateOnAction" styleClass="btnupdatek" text="update" />
+      <TableView fx:id="tblPayment" layoutX="22.0" layoutY="311.0" prefHeight="313.0" prefWidth="949.0">
+        <columns>
+          <TableColumn fx:id="colRefNo" prefWidth="256.0" text="Reference No" />
+          <TableColumn fx:id="colDate" prefWidth="187.0" text="Date" />
+            <TableColumn fx:id="colStId" prefWidth="225.0" text="Student Id" />
+            <TableColumn fx:id="colType" prefWidth="163.0" text="Type" />
+            <TableColumn fx:id="colAction" prefWidth="116.0" text="Action" />
+        </columns>
+      </TableView>
+      <DatePicker fx:id="dtpckrDate" layoutX="162.0" layoutY="182.0" prefHeight="25.0" prefWidth="184.0" promptText="date" />
+      <JFXButton layoutX="349.0" layoutY="119.0" onAction="#btnSearchOnAction" prefHeight="44.0" prefWidth="42.0" text="." />
+      <JFXComboBox fx:id="cmbStId" layoutX="586.0" layoutY="130.0" prefHeight="25.0" prefWidth="227.0" styleClass="cmb" />
+      <JFXButton layoutX="570.0" layoutY="249.0" onAction="#btnGetReportOnAction" styleClass="btngetreport" text="Get Report" />
+      <JFXButton layoutX="709.0" layoutY="252.0" onAction="#btnClearOnAction" styleClass="btnclear" text="Clear" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="353.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-search.gif" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="cmbType" layoutX="586.0" layoutY="180.0" prefHeight="25.0" prefWidth="227.0" />
+   </children>
+</AnchorPane>

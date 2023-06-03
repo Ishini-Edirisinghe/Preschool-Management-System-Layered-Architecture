@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginContext" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="724.0" style="-fx-background-color: linear-gradient(to top right, #00FFF0, #F8FB61); -fx-border-radius: 50;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.preschool.controller.LoginWindowController">
+   <children>
+      <ImageView disable="true" fitHeight="461.0" fitWidth="835.0" layoutX="-105.0" layoutY="-61.0" pickOnBounds="true">
+         <image>
+            <Image url="@../img/login1.jpg" />
+         </image>
+         <effect>
+            <ColorAdjust brightness="-0.5" contrast="0.5" hue="0.04" saturation="0.01" />
+         </effect>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="146.0" prefHeight="36.0" prefWidth="91.0" text="Username :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="11.0" layoutY="201.0" prefHeight="36.0" prefWidth="97.0" text="Password :">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="164.0" layoutY="275.0" onAction="#btnLoginOnAction" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: yellow; -fx-background-radius: 20;" text="Login">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="16.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.4699999988079071" green="0.41359999775886536" blue="0.41359999775886536" opacity="0.8969465494155884" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </JFXButton>
+      <TextField fx:id="txtUserName" layoutX="115.0" layoutY="152.0" onAction="#txtUserNameOnAction" prefHeight="25.0" prefWidth="198.0" promptText="username" />
+      <PasswordField fx:id="txtPassword" layoutX="115.0" layoutY="207.0" onAction="#txtPasswordOnAction" prefHeight="25.0" prefWidth="198.0" promptText="password" />
+   </children>
+</AnchorPane>
