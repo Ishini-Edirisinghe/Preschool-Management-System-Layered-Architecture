@@ -1,7 +1,5 @@
 package lk.ijse.preschool.util;
 
-import lk.ijse.preschool.dto.Student;
-
 public class Regex {
     private static final String USERNAME_REGEX = "^[A-Za-z0-9]{3,}$";
     private static final String PASSWORD_REGEX = "[aA-zZ0-9]{8,20}$";

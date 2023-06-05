@@ -96,7 +96,7 @@ public class DashboardWindowController implements Initializable {
 
             }
 
-            } catch(SQLException throwables){
+            } catch(SQLException | ClassNotFoundException throwables){
                 throwables.printStackTrace();
             }
 

@@ -6,16 +6,12 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Data
 
-public class Student {
-   private String stId;
+public class TeacherDTO {
+   private String teachId;
    private String name;
    private String address;
    private String DOB;
    private String contact;
-   private String parentName;
-   private String teachId;
-
 
 }

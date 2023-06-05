@@ -13,13 +13,14 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.SkillStatus;
-import lk.ijse.preschool.dto.Student;
+import lk.ijse.preschool.dto.SkillStatusDTO;
+import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PlaceStudentModel;
 import lk.ijse.preschool.model.SkillStatusModel;
-import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
@@ -117,6 +118,7 @@ public class ManageStudentWindowController implements Initializable {
     private JFXButton btnSaveStudent;
     private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
+    private StudentBO studentBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> txtSearch.requestFocus());
@@ -134,9 +136,9 @@ public class ManageStudentWindowController implements Initializable {
                 String studentId = txtStId.getText();
 
                 try {
-                    Student student = StudentModel.searchById(studentId);
+                    StudentDTO student = studentBO.searchStudent(studentId);
                   //  txtStudentName.setText(student.getName());
-                    SkillStatus skillStatus= SkillStatusModel.search(studentId);
+                    SkillStatusDTO skillStatus= SkillStatusModel.search(studentId);
 
                     if (skillStatus!=null){
                         cmbWriting.setValue(skillStatus.getWriting());
@@ -159,7 +161,7 @@ public class ManageStudentWindowController implements Initializable {
                     }
 
 
-                } catch (SQLException e) {
+                } catch (SQLException | ClassNotFoundException e) {
                     //  e.printStackTrace();
                     new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
                 }
@@ -190,9 +192,9 @@ public class ManageStudentWindowController implements Initializable {
         txtContact.setText(studentTM.getContact());
         txtParentName.setText(studentTM.getParentsName());
         try {
-            Student student=StudentModel.searchById(studentTM.getStId());
+            StudentDTO student=studentBO.searchStudent(studentTM.getStId());
             cmbTeacherId.setValue(student.getTeachId());
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -200,8 +202,8 @@ public class ManageStudentWindowController implements Initializable {
 
     private void getAllStudentsToTable(String searchText) {
             try {
-                List<Student> studentList = StudentModel.getAll();
-                for(Student student : studentList) {
+                List<StudentDTO> studentList = studentBO.getAllStudents();
+                for(StudentDTO student : studentList) {
                     if (student.getName().contains(searchText) || student.getAddress().contains(searchText)){  //Check pass text contains of the supName
                         JFXButton btnDel=new JFXButton("Delete");
                         btnDel.setAlignment(Pos.CENTER);
@@ -221,7 +223,7 @@ public class ManageStudentWindowController implements Initializable {
                 }
             }
             tblStudent.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Query error!").show();
         }
@@ -275,8 +277,8 @@ public class ManageStudentWindowController implements Initializable {
         String sing = cmbSinging.getSelectionModel().getSelectedItem().toString();
         String write = cmbWriting.getSelectionModel().getSelectedItem().toString();
 
-        SkillStatus s1 = new SkillStatus(id,name,count,craft,draw,read,sing,write);
-        Student s2 = new Student(id,name,address,DOB,contact,parentName,teachId);
+        SkillStatusDTO s1 = new SkillStatusDTO(id,name,count,craft,draw,read,sing,write);
+        StudentDTO s2 = new StudentDTO(id,name,address,DOB,contact,parentName,teachId);
 
         boolean isSaved;
 
@@ -296,7 +298,7 @@ public class ManageStudentWindowController implements Initializable {
             }
         }else{
             try {
-                boolean isUpdated = StudentModel.update(id, name, address,DOB, contact,parentName,teachId);
+                boolean isUpdated = studentBO.updateStudent(new StudentDTO(id, name, address,DOB, contact,parentName,teachId));
                 if (isUpdated) {
 
                     new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Updated!").show();
@@ -304,7 +306,7 @@ public class ManageStudentWindowController implements Initializable {
                     getAllStudentsToTable("");
                   //  clearFieldsRefreshTable();
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
 
                 new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
               //  clearFieldsRefreshTable();
@@ -356,7 +358,7 @@ public class ManageStudentWindowController implements Initializable {
             try {
                 String code = txtStId.getText();
 
-                boolean isDeleted = StudentModel.deleteStudent(code);
+                boolean isDeleted = studentBO.deleteStudent(code);
                 if(isDeleted) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
                     tblStudent.getItems().clear();
@@ -367,7 +369,7 @@ public class ManageStudentWindowController implements Initializable {
                     new Alert(Alert.AlertType.CONFIRMATION, "Student not deleted !").show();
                     // clearFieldsRefreshTable();
                 }
-            } catch (SQLException ex) {
+            } catch (SQLException | ClassNotFoundException ex) {
                 ex.printStackTrace();
             }
 
@@ -405,7 +407,7 @@ public class ManageStudentWindowController implements Initializable {
        // txtStIdOnAction(actionEvent);
         String code = txtStId.getText();
         try {
-            Student student = StudentModel.search(code);
+            StudentDTO student = studentBO.searchStudent(code);
             if (student != null) {
                 txtStId.setText(student.getStId());
                 txtName.setText(student.getName());
@@ -417,7 +419,7 @@ public class ManageStudentWindowController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.WARNING, "no student found :(").show();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }

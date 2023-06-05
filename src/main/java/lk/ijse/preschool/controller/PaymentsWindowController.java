@@ -11,14 +11,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.Payment;
-import lk.ijse.preschool.dto.Student;
+import lk.ijse.preschool.dto.PaymentDTO;
 import lk.ijse.preschool.dto.tm.PaymentTM;
-import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PaymentModel;
-import lk.ijse.preschool.model.StudentModel;
-import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -74,6 +72,8 @@ public class PaymentsWindowController implements Initializable {
     private ObservableList<PaymentTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
+    private StudentBO studentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+
 
     public void txtRefNoOnAction(ActionEvent actionEvent) {
 
@@ -101,14 +101,14 @@ public class PaymentsWindowController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Payment saved!!!").show();
                 clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
             //new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
             clearFieldsRefreshTable();
         }
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtRefNo.getText();
 
         boolean isDeleted = PaymentModel.deletePayment(code);
@@ -134,7 +134,7 @@ public class PaymentsWindowController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Payment Updated!").show();
                 clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
               new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
                 clearFieldsRefreshTable();
@@ -144,7 +144,7 @@ public class PaymentsWindowController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String code = txtRefNo.getText();
         try {
-            Payment payment = PaymentModel.search(code);
+            PaymentDTO payment = PaymentModel.search(code);
             if (payment != null) {
                 txtRefNo.setText(payment.getRef_no());
                 dtpckrDate.setValue(LocalDate.parse(payment.getDate()));
@@ -153,7 +153,7 @@ public class PaymentsWindowController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.WARNING, "no payment found :(").show();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }
@@ -178,14 +178,14 @@ public class PaymentsWindowController implements Initializable {
 
     private void loadStid() {
         try {
-            List<String>  ids = StudentModel.getIds();
+            ArrayList<String>  ids = studentBO.getIds();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             for (String id : ids) {
                 obList.add(id);
             }
             cmbStId.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -242,8 +242,8 @@ public class PaymentsWindowController implements Initializable {
 
    private void getAllPaymentsToTable(String searchText) {
         try {
-            List<Payment> paymentList = PaymentModel.getAll();
-            for(Payment payment : paymentList) {
+            List<PaymentDTO> paymentList = PaymentModel.getAll();
+            for(PaymentDTO payment : paymentList) {
                 if (payment.getDate().contains(searchText) || payment.getStid().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");
                     btnDel.setAlignment(Pos.CENTER);
@@ -263,7 +263,7 @@ public class PaymentsWindowController implements Initializable {
                 }
             }
             tblPayment.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Query error!").show();
         }
@@ -281,7 +281,7 @@ public class PaymentsWindowController implements Initializable {
                // btnSearchOnAction(e);
                 try {
                     btnDeleteOnAction(e);
-                } catch (SQLException ex) {
+                } catch (SQLException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
 

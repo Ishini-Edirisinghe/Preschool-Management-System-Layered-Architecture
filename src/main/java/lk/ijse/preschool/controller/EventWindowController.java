@@ -5,22 +5,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-import javafx.stage.Window;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.Event;
-import lk.ijse.preschool.dto.Student;
+import lk.ijse.preschool.dto.EventDTO;
 import lk.ijse.preschool.dto.tm.EventTM;
-import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.EventModel;
-import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -28,11 +21,9 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -89,8 +80,8 @@ public class EventWindowController implements Initializable {
 
     private void getAlleventsToTable(String searchText) {
         try {
-            List<Event> eventList = EventModel.getAll();
-            for(Event event : eventList) {
+            List<EventDTO> eventList = EventModel.getAll();
+            for(EventDTO event : eventList) {
                 if (event.getName().contains(searchText) || event.getMonth().contains(searchText)){  //Check pass text contains of the eveName
                     JFXButton btnDel=new JFXButton("Delete");
                     btnDel.setAlignment(Pos.CENTER);
@@ -109,7 +100,7 @@ public class EventWindowController implements Initializable {
                 }
             }
             tblEvent.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Query error!").show();
         }
@@ -127,7 +118,7 @@ public class EventWindowController implements Initializable {
                 btnSearchEventOnAction(e);
                 try {
                     btnDeleteOnAction(e);
-                } catch (SQLException ex) {
+                } catch (SQLException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
 
@@ -159,7 +150,7 @@ public class EventWindowController implements Initializable {
                 tblEvent.getItems().clear();
                 getAlleventsToTable(searchText);
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
         }
         txtEventNo.clear();
@@ -169,7 +160,7 @@ public class EventWindowController implements Initializable {
 
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtEventNo.getText();
 
         boolean isDeleted = EventModel.deleteEvent(code);
@@ -196,7 +187,7 @@ public class EventWindowController implements Initializable {
                 tblEvent.getItems().clear();
                 getAlleventsToTable("");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             System.out.println(e);
             //   new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
         }
@@ -208,7 +199,7 @@ public class EventWindowController implements Initializable {
     void btnSearchEventOnAction(ActionEvent event) {
         String code = txtEventNo.getText();
         try {
-            Event event1 = EventModel.search(code);
+            EventDTO event1 = EventModel.search(code);
             if (event1 != null) {
                 txtEventNo.setText(event1.getEvent_no());
                 txtEventName.setText(event1.getName());
@@ -217,7 +208,7 @@ public class EventWindowController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.WARNING, "no event found :(").show();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }

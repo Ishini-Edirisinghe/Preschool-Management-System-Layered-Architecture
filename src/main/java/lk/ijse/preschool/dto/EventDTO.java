@@ -8,9 +8,8 @@ import lombok.*;
 @Setter
 @Data
 
-
-public class Syllabus {
-    private String subject_id;
-    private String sub_name;
-    private String stid;
+public class EventDTO {
+    private String event_no;
+    private String name;
+    private String month;
 }

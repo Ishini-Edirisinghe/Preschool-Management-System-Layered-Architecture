@@ -11,15 +11,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.Event;
-import lk.ijse.preschool.dto.Student;
-import lk.ijse.preschool.dto.Teacher;
-import lk.ijse.preschool.dto.tm.EventTM;
-import lk.ijse.preschool.dto.tm.StudentTM;
-import lk.ijse.preschool.dto.tm.SyllabusTM;
+import lk.ijse.preschool.dto.TeacherDTO;
 import lk.ijse.preschool.dto.tm.TeacherTM;
-import lk.ijse.preschool.model.EventModel;
-import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
@@ -144,7 +137,7 @@ public class ManageTeacherWindowController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Teacher saved!!!").show();
                 clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
             clearFieldsRefreshTable();
         }
@@ -152,7 +145,7 @@ public class ManageTeacherWindowController implements Initializable {
 
     }
 
-    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException {
+    public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtTeachId.getText();
 
         boolean isDeleted = TeacherModel.deleteStudent(code);
@@ -182,7 +175,7 @@ public class ManageTeacherWindowController implements Initializable {
                 clearFieldsRefreshTable();
 
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
               new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
          //   clearFieldsRefreshTable();
         }
@@ -192,7 +185,7 @@ public class ManageTeacherWindowController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String code = txtTeachId.getText();
         try {
-            Teacher teacher = TeacherModel.search(code);
+            TeacherDTO teacher = TeacherModel.search(code);
             if (teacher != null) {
                 txtTeachId.setText(teacher.getTeachId());
                 txtTeachName.setText(teacher.getName());
@@ -204,7 +197,7 @@ public class ManageTeacherWindowController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.WARNING, "no teacher found :(").show();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
     }
@@ -218,8 +211,8 @@ public class ManageTeacherWindowController implements Initializable {
     }
     private void getAllTeachersToTable(String searchText) {
         try {
-            List<Teacher> teacherList = TeacherModel.getAll();
-            for(Teacher teacher : teacherList) {
+            List<TeacherDTO> teacherList = TeacherModel.getAll();
+            for(TeacherDTO teacher : teacherList) {
                 if (teacher.getName().contains(searchText) || teacher.getAddress().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");
                     btnDel.setAlignment(Pos.CENTER);
@@ -238,7 +231,7 @@ public class ManageTeacherWindowController implements Initializable {
                 }
             }
             tblTeacher.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Query error!").show();
         }
@@ -256,7 +249,7 @@ public class ManageTeacherWindowController implements Initializable {
                // btnSearchEventOnAction(e);
                 try {
                     btnDeleteOnAction(e);
-                } catch (SQLException ex) {
+                } catch (SQLException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
 

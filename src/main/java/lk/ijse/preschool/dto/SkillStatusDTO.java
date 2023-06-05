@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Data
 
-public class SkillStatus {
+public class SkillStatusDTO {
     private String stid;
     private String stName;
     private String counting ;

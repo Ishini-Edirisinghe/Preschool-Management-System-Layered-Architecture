@@ -8,9 +8,9 @@ import lombok.*;
 @Setter
 @Data
 
-public class Payment {
-    private String ref_no;
-    private String date;
+
+public class SyllabusDTO {
+    private String subject_id;
+    private String sub_name;
     private String stid;
-    private String type;
 }

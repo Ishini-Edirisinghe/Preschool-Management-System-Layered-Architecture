@@ -7,11 +7,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.SkillStatus;
-import lk.ijse.preschool.dto.Student;
+import lk.ijse.preschool.dto.SkillStatusDTO;
+import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.model.SkillStatusModel;
-import lk.ijse.preschool.model.StudentModel;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -21,6 +22,7 @@ import net.sf.jasperreports.view.JasperViewer;
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -56,6 +58,8 @@ public class StudentSkillStatusWindowController implements Initializable {
 
     private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
+    private StudentBO studentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -76,14 +80,14 @@ public class StudentSkillStatusWindowController implements Initializable {
 
     private void loadStid() {
         try {
-            List<String> ids = StudentModel.getIds();
+            ArrayList<String> ids = studentBO.getIds();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             for (String id : ids) {
                 obList.add(id);
             }
             cmbStId.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -93,9 +97,9 @@ public class StudentSkillStatusWindowController implements Initializable {
         String studentId = cmbStId.getSelectionModel().getSelectedItem();
 
         try {
-            Student student = StudentModel.searchById(studentId);
+            StudentDTO student = studentBO.searchStudent(studentId);
             txtStudentName.setText(student.getName());
-            SkillStatus skillStatus=SkillStatusModel.search(studentId);
+            SkillStatusDTO skillStatus=SkillStatusModel.search(studentId);
 
             if (skillStatus!=null){
                 cmbWritingStatus.setValue(skillStatus.getWriting());
@@ -118,7 +122,7 @@ public class StudentSkillStatusWindowController implements Initializable {
             }
 
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
           //  e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
         }
@@ -146,7 +150,7 @@ public class StudentSkillStatusWindowController implements Initializable {
                     // clearFieldsRefreshTable();
                     cmbStIdOnActon(event);
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 // System.out.println(e);
                 new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
                 // clearFieldsRefreshTable();
@@ -171,7 +175,7 @@ public class StudentSkillStatusWindowController implements Initializable {
                     new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Skill Updated!").show();
                   //  cmbStIdOnActon(event);
                 }
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                     new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
                 //  clearFieldsRefreshTable();
             }

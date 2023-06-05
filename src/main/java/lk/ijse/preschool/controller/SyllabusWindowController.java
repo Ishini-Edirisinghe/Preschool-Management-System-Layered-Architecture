@@ -5,20 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.Student;
-import lk.ijse.preschool.dto.Syllabus;
-import lk.ijse.preschool.dto.tm.StudentTM;
+import lk.ijse.preschool.dto.SyllabusDTO;
 import lk.ijse.preschool.dto.tm.SyllabusTM;
-import lk.ijse.preschool.model.StudentModel;
 import lk.ijse.preschool.model.SyllabusModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
@@ -27,11 +21,9 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.FileSystems;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -75,7 +67,7 @@ public class SyllabusWindowController implements Initializable {
     }
 
     @FXML
-    void btnDeleteOnAction(ActionEvent event) throws SQLException {
+    void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String code = txtConNo.getText();
 
         boolean isDeleted = SyllabusModel.deleteSyllabus(code);
@@ -99,7 +91,7 @@ public class SyllabusWindowController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "Content saved!!!").show();
                 clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "OOPSSS!! something happened!!!").show();
             clearFieldsRefreshTable();
         }
@@ -109,7 +101,7 @@ public class SyllabusWindowController implements Initializable {
     void btnSearchOnAction(ActionEvent event) {
         String code = txtConNo.getText();
         try {
-            Syllabus syllabus = SyllabusModel.search(code);
+            SyllabusDTO syllabus = SyllabusModel.search(code);
             if (syllabus != null) {
                 txtConNo.setText(syllabus.getSubject_id());
                 txtConName.setText(syllabus.getSub_name());
@@ -117,7 +109,7 @@ public class SyllabusWindowController implements Initializable {
             } else {
                 new Alert(Alert.AlertType.WARNING, "no Content found :(").show();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "oops! something went wrong :(").show();
         }
 
@@ -136,7 +128,7 @@ public class SyllabusWindowController implements Initializable {
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Content Updated!").show();
                 clearFieldsRefreshTable();
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
                new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();
                 clearFieldsRefreshTable();
         }
@@ -171,8 +163,8 @@ public class SyllabusWindowController implements Initializable {
 
     private void getAllSyllabusToTable(String searchText) {
         try {
-            List<Syllabus> syllabusList = SyllabusModel.getAll();
-            for(Syllabus syllabus : syllabusList) {
+            List<SyllabusDTO> syllabusList = SyllabusModel.getAll();
+            for(SyllabusDTO syllabus : syllabusList) {
                 if (syllabus.getSubject_id().contains(searchText) || syllabus.getSub_name().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");
                     btnDel.setAlignment(Pos.CENTER);
@@ -192,7 +184,7 @@ public class SyllabusWindowController implements Initializable {
                 }
             }
             tblSyllabus.setItems(obList);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "Query error!").show();
         }
@@ -210,7 +202,7 @@ public class SyllabusWindowController implements Initializable {
                 //btnSearchOnAction(e);
                 try {
                     btnDeleteOnAction(e);
-                } catch (SQLException ex) {
+                } catch (SQLException | ClassNotFoundException ex) {
                     ex.printStackTrace();
                 }
 

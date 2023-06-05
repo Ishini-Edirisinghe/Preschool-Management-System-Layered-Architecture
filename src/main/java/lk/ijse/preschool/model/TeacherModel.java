@@ -1,23 +1,21 @@
 package lk.ijse.preschool.model;
 
+import lk.ijse.preschool.DAO.SQLUtil;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.Student;
-import lk.ijse.preschool.dto.Teacher;
-import lk.ijse.preschool.util.CrudUtil;
+import lk.ijse.preschool.dto.TeacherDTO;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherModel {
-    public static boolean save(String teachId, String name, String address,String DOB,String contact) throws SQLException {
+    public static boolean save(String teachId, String name, String address,String DOB,String contact) throws SQLException, ClassNotFoundException {
 
         String sql = "INSERT INTO teacher(teachId,name,address,DOB,contact) VALUES (?,?,?,?,?)";
 
-        return CrudUtil.execute(sql, teachId, name, address, DOB,contact);
+        return SQLUtil.execute(sql, teachId, name, address, DOB,contact);
 
     }
 
@@ -55,9 +53,9 @@ public class TeacherModel {
         return codes;
     }
 
-    public static Teacher search(String teachId) throws SQLException {
+    public static TeacherDTO search(String teachId) throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM teacher WHERE teachId = ?";
-        ResultSet resultSet = CrudUtil.execute(sql,teachId);
+        ResultSet resultSet = SQLUtil.execute(sql,teachId);
 
         if(resultSet.next()) {
             String teacher_teachId = resultSet.getString(1);
@@ -67,29 +65,29 @@ public class TeacherModel {
             String teacher_contact = resultSet.getString(5);
 
 
-            return new Teacher(teacher_teachId, teacher_name, teacher_address, teacher_DOB,teacher_contact);
+            return new TeacherDTO(teacher_teachId, teacher_name, teacher_address, teacher_DOB,teacher_contact);
         }
         return null;
     }
 
-    public static boolean deleteStudent(String code) throws SQLException {
+    public static boolean deleteStudent(String code) throws SQLException, ClassNotFoundException {
         String sql = "DELETE FROM teacher WHERE teachId = ?";
-        return CrudUtil.execute(sql,code);
+        return SQLUtil.execute(sql,code);
     }
 
-    public static boolean update(String teachId, String name, String address, String DOB, String contact) throws SQLException {
+    public static boolean update(String teachId, String name, String address, String DOB, String contact) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE teacher SET name = ?, address = ?,DOB=?,contact=? WHERE teachId = ?";
-        return CrudUtil.execute(sql,name, address,DOB, contact,teachId);
+        return SQLUtil.execute(sql,name, address,DOB, contact,teachId);
     }
 
-    public static List<Teacher> getAll() throws SQLException {
+    public static List<TeacherDTO> getAll() throws SQLException, ClassNotFoundException {
         String sql = "SELECT * FROM teacher";
 
-        List<Teacher> teaData = new ArrayList<>();
+        List<TeacherDTO> teaData = new ArrayList<>();
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            teaData.add(new Teacher(
+            teaData.add(new TeacherDTO(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),

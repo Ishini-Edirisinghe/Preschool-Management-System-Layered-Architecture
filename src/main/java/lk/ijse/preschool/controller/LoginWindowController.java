@@ -69,7 +69,7 @@ public class LoginWindowController implements Initializable {
                     stage.show();
                 }
 
-            } catch (SQLException e) {
+            } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
 
