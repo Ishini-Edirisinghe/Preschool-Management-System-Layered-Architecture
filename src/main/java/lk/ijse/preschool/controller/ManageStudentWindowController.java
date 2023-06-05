@@ -15,13 +15,13 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.preschool.bo.BOFactory;
 import lk.ijse.preschool.bo.costom.StudentBO;
+import lk.ijse.preschool.bo.costom.TeacherBo;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.SkillStatusDTO;
 import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.dto.tm.StudentTM;
 import lk.ijse.preschool.model.PlaceStudentModel;
 import lk.ijse.preschool.model.SkillStatusModel;
-import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -119,6 +119,7 @@ public class ManageStudentWindowController implements Initializable {
     private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
     private StudentBO studentBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+    private TeacherBo teacherBo =BOFactory.getInstance().getBO(BOFactory.BOTypes.TEACHER);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> txtSearch.requestFocus());
@@ -318,7 +319,7 @@ public class ManageStudentWindowController implements Initializable {
     }
     private void loadTeacherids(){
         try {
-            List<String> ids = TeacherModel.getIds();
+            List<String> ids = teacherBo.getIds();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             for (String id : ids) {
@@ -326,7 +327,7 @@ public class ManageStudentWindowController implements Initializable {
             }
             cmbTeacherId.setItems(obList);
 
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
         }

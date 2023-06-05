@@ -10,10 +10,11 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.TeacherBo;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.TeacherDTO;
 import lk.ijse.preschool.dto.tm.TeacherTM;
-import lk.ijse.preschool.model.TeacherModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -69,6 +70,8 @@ public class ManageTeacherWindowController implements Initializable {
     private TextField txtTeachName;
     private ObservableList<TeacherTM> obList = FXCollections.observableArrayList();
     private String searchText="";
+
+    private TeacherBo teacherBo = BOFactory.getInstance().getBO(BOFactory.BOTypes.TEACHER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -132,7 +135,7 @@ public class ManageTeacherWindowController implements Initializable {
         String contact = txtContact.getText();
 
         try {
-            boolean isSaved = TeacherModel.save(teachId, name, address,DOB, contact);
+            boolean isSaved = teacherBo.addTeacher(new TeacherDTO(teachId, name, address,DOB, contact));
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Teacher saved!!!").show();
                 clearFieldsRefreshTable();
@@ -148,7 +151,7 @@ public class ManageTeacherWindowController implements Initializable {
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtTeachId.getText();
 
-        boolean isDeleted = TeacherModel.deleteStudent(code);
+        boolean isDeleted = teacherBo.deleteTeacher(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Teacher deleted !").show();
             clearFieldsRefreshTable();
@@ -168,7 +171,7 @@ public class ManageTeacherWindowController implements Initializable {
 
 
         try {
-            boolean isUpdated = TeacherModel.update(teachId, name, address,DOB, contact);
+            boolean isUpdated = teacherBo.updateTeacher(new TeacherDTO(teachId, name, address,DOB, contact));
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Teacher Updated!").show();
@@ -185,7 +188,7 @@ public class ManageTeacherWindowController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String code = txtTeachId.getText();
         try {
-            TeacherDTO teacher = TeacherModel.search(code);
+            TeacherDTO teacher = teacherBo.searchTeacher(code);
             if (teacher != null) {
                 txtTeachId.setText(teacher.getTeachId());
                 txtTeachName.setText(teacher.getName());
@@ -211,7 +214,7 @@ public class ManageTeacherWindowController implements Initializable {
     }
     private void getAllTeachersToTable(String searchText) {
         try {
-            List<TeacherDTO> teacherList = TeacherModel.getAll();
+            List<TeacherDTO> teacherList = teacherBo.getAllTeachers();
             for(TeacherDTO teacher : teacherList) {
                 if (teacher.getName().contains(searchText) || teacher.getAddress().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");
