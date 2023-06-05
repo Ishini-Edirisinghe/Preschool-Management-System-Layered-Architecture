@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Data
 
-public class Payment {
+public class Payment implements SuperEntity {
     private String ref_no;
     private String date;
     private String stid;

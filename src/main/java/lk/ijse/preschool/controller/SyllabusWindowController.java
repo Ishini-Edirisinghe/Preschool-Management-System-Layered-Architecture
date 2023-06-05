@@ -10,10 +10,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.preschool.DAO.DAOFactory;
+import lk.ijse.preschool.DAO.custom.SyllabusDAO;
+import lk.ijse.preschool.bo.costom.SyllabusBO;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.SyllabusDTO;
 import lk.ijse.preschool.dto.tm.SyllabusTM;
-import lk.ijse.preschool.model.SyllabusModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -52,6 +54,9 @@ public class SyllabusWindowController implements Initializable {
     private ObservableList<SyllabusTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
+    private SyllabusBO syllabusBO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SYLLABUS);
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory(); //To show table data
@@ -70,7 +75,7 @@ public class SyllabusWindowController implements Initializable {
     void btnDeleteOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         String code = txtConNo.getText();
 
-        boolean isDeleted = SyllabusModel.deleteSyllabus(code);
+        boolean isDeleted = syllabusBO.deleteSyllabus(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Content deleted !").show();
             clearFieldsRefreshTable();
@@ -86,7 +91,7 @@ public class SyllabusWindowController implements Initializable {
         String sub_name = txtConName.getText();
 
         try {
-            boolean isSaved = SyllabusModel.save(subject_id,sub_name);
+            boolean isSaved = syllabusBO.addSyllabus(new SyllabusDTO(subject_id,sub_name));
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Content saved!!!").show();
                 clearFieldsRefreshTable();
@@ -101,7 +106,7 @@ public class SyllabusWindowController implements Initializable {
     void btnSearchOnAction(ActionEvent event) {
         String code = txtConNo.getText();
         try {
-            SyllabusDTO syllabus = SyllabusModel.search(code);
+            SyllabusDTO syllabus = syllabusBO.searchSyllabus(code);
             if (syllabus != null) {
                 txtConNo.setText(syllabus.getSubject_id());
                 txtConName.setText(syllabus.getSub_name());
@@ -122,7 +127,7 @@ public class SyllabusWindowController implements Initializable {
 
 
         try {
-            boolean isUpdated = SyllabusModel.update(subject_id,sub_name);
+            boolean isUpdated = syllabusBO.updateSyllabus(new SyllabusDTO(subject_id,sub_name));
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Content Updated!").show();
@@ -163,7 +168,7 @@ public class SyllabusWindowController implements Initializable {
 
     private void getAllSyllabusToTable(String searchText) {
         try {
-            List<SyllabusDTO> syllabusList = SyllabusModel.getAll();
+            List<SyllabusDTO> syllabusList = syllabusBO.getAllSyllabus();
             for(SyllabusDTO syllabus : syllabusList) {
                 if (syllabus.getSubject_id().contains(searchText) || syllabus.getSub_name().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");

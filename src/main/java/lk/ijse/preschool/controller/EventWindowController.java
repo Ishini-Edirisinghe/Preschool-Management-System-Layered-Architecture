@@ -10,10 +10,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.EventBO;
+import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.EventDTO;
 import lk.ijse.preschool.dto.tm.EventTM;
-import lk.ijse.preschool.model.EventModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -59,6 +61,8 @@ public class EventWindowController implements Initializable {
 
     private String searchText="";
 
+    private EventBO eventBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.EVENT);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setCellValueFactory(); //To show table data
@@ -80,7 +84,7 @@ public class EventWindowController implements Initializable {
 
     private void getAlleventsToTable(String searchText) {
         try {
-            List<EventDTO> eventList = EventModel.getAll();
+            List<EventDTO> eventList = eventBO.getAllEvents();
             for(EventDTO event : eventList) {
                 if (event.getName().contains(searchText) || event.getMonth().contains(searchText)){  //Check pass text contains of the eveName
                     JFXButton btnDel=new JFXButton("Delete");
@@ -144,7 +148,7 @@ public class EventWindowController implements Initializable {
 
 
         try {
-            boolean isSaved = EventModel.save(event_no,name,month);
+            boolean isSaved = eventBO.addEvent(new EventDTO(event_no,name,month));
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Event saved!!!").show();
                 tblEvent.getItems().clear();
@@ -163,7 +167,7 @@ public class EventWindowController implements Initializable {
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtEventNo.getText();
 
-        boolean isDeleted = EventModel.deleteEvent(code);
+        boolean isDeleted = eventBO.deleteEvent(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Student deleted !").show();
             tblEvent.getItems().clear();
@@ -180,7 +184,7 @@ public class EventWindowController implements Initializable {
         String month = txtMonth.getText();
 
         try {
-            boolean isUpdated = EventModel.update(event_no, name, month);
+            boolean isUpdated = eventBO.updateEvent(new EventDTO(event_no, name, month));
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Updated!").show();
@@ -199,7 +203,7 @@ public class EventWindowController implements Initializable {
     void btnSearchEventOnAction(ActionEvent event) {
         String code = txtEventNo.getText();
         try {
-            EventDTO event1 = EventModel.search(code);
+            EventDTO event1 = eventBO.searchEvent(code);
             if (event1 != null) {
                 txtEventNo.setText(event1.getEvent_no());
                 txtEventName.setText(event1.getName());

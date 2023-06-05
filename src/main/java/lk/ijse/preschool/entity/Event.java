@@ -8,7 +8,7 @@ import lombok.*;
 @Setter
 @Data
 
-public class Event {
+public class Event implements SuperEntity {
     private String event_no;
     private String name;
     private String month;

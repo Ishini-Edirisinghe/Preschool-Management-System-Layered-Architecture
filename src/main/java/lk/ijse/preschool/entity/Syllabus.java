@@ -9,8 +9,8 @@ import lombok.*;
 @Data
 
 
-public class Syllabus {
+public class Syllabus implements SuperEntity {
     private String subject_id;
     private String sub_name;
-    private String stid;
+    //private String stid;
 }

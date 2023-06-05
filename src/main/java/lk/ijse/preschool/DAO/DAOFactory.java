@@ -1,7 +1,6 @@
 package lk.ijse.preschool.DAO;
 
-import lk.ijse.preschool.DAO.custom.DAOImpl.StudentDAOImpl;
-import lk.ijse.preschool.DAO.custom.DAOImpl.TeacherDAOImpl;
+import lk.ijse.preschool.DAO.custom.DAOImpl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -14,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        STUDENT,TEACHER
+        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT
     }
 
     public <T> T  getDAO(DAOTypes daoTypes) {
@@ -23,11 +22,13 @@ public class DAOFactory {
                 return (T) new StudentDAOImpl();
             case TEACHER:
                 return (T) new TeacherDAOImpl();
-           /* case ORDER:
-                return new OrderDAOImpl();
-            case ORDER_DETAILS:
-                return new OrderDetailsDAOImpl();
-            case QUERY_DAO:
+            case EVENT:
+                return (T) new EventDAOImpl();
+            case SYLLABUS:
+                return (T) new SyllabusDAOImpl();
+            case PAYMENT:
+                return (T) new PaymentDAOImpl();
+          /*   case QUERY_DAO:
                 return new QueryDAOImpl();*/
             default:
                 return null;

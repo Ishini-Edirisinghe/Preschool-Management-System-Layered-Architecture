@@ -119,7 +119,9 @@ public class ManageStudentWindowController implements Initializable {
     private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
     private StudentBO studentBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+
     private TeacherBo teacherBo =BOFactory.getInstance().getBO(BOFactory.BOTypes.TEACHER);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> txtSearch.requestFocus());

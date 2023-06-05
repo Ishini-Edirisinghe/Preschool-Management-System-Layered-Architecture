@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a1bb289-3399-4018-8746-902d59be682d" name="Changes" comment="StudentDAO and StudentBO completed">
+    <list default="true" id="4a1bb289-3399-4018-8746-902d59be682d" name="Changes" comment="teacher implementation with errors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/BOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/EventWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/EventWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageStudentWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageStudentWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageTeacherWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageTeacherWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/TeacherModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/PaymentsWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/PaymentsWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/SyllabusWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/SyllabusWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dto/SyllabusDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dto/SyllabusDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Syllabus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Syllabus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/EventModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/PaymentModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/SyllabusModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$DAOTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$DAOTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$BOTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$BOTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/EventWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/EventWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/ManageStudentWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/ManageStudentWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/Event.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/EventModel.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +45,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="2QghE7MZs56pPhVo90GsLlOqjKd" />
   <component name="ProjectLevelVcsManager">
@@ -84,7 +107,10 @@
       <workItem from="1685888181586" duration="188000" />
       <workItem from="1685939677702" duration="16307000" />
       <workItem from="1685957380691" duration="759000" />
-      <workItem from="1685981472565" duration="7283000" />
+      <workItem from="1685981472565" duration="8246000" />
+      <workItem from="1686024930624" duration="113000" />
+      <workItem from="1686025836748" duration="8906000" />
+      <workItem from="1686072374349" duration="8881000" />
     </task>
     <task id="LOCAL-00001" summary="StudentDAO and StudentBO completed">
       <created>1685958007591</created>
@@ -93,7 +119,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685958007591</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="teacher implementation with errors">
+      <created>1685989598488</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685989598488</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teacher implementation with errors">
+      <created>1685989644307</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685989644307</updated>
+    </task>
+    <task id="LOCAL-00004" summary="teacher implementation with errors">
+      <created>1685989725147</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685989725147</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +160,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="StudentDAO and StudentBO completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="StudentDAO and StudentBO completed" />
+    <MESSAGE value="teacher implementation with errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="teacher implementation with errors" />
   </component>
 </project>

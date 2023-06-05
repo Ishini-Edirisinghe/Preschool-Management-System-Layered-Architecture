@@ -12,11 +12,12 @@ import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.PaymentBO;
 import lk.ijse.preschool.bo.costom.StudentBO;
+import lk.ijse.preschool.bo.costom.TeacherBo;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.PaymentDTO;
 import lk.ijse.preschool.dto.tm.PaymentTM;
-import lk.ijse.preschool.model.PaymentModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -34,6 +35,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class PaymentsWindowController implements Initializable {
+    private PaymentBO paymentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.PAYMENT);
 
     @FXML
     private TableColumn<?, ?> colAction;
@@ -96,7 +98,7 @@ public class PaymentsWindowController implements Initializable {
         String type = String.valueOf(cmbType.getSelectionModel().getSelectedItem());
 
         try {
-            boolean isSaved = PaymentModel.save(ref_no, date, stid,type);
+            boolean isSaved = paymentBO.addPayment(new PaymentDTO(ref_no, date, stid,type));
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Payment saved!!!").show();
                 clearFieldsRefreshTable();
@@ -111,7 +113,7 @@ public class PaymentsWindowController implements Initializable {
     public void btnDeleteOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String code = txtRefNo.getText();
 
-        boolean isDeleted = PaymentModel.deletePayment(code);
+        boolean isDeleted = paymentBO.deletePayment(code);
         if(isDeleted) {
             new Alert(Alert.AlertType.CONFIRMATION, "Payment deleted !").show();
             clearFieldsRefreshTable();
@@ -128,7 +130,7 @@ public class PaymentsWindowController implements Initializable {
         String type = String.valueOf(cmbType.getSelectionModel().getSelectedItem());
 
         try {
-            boolean isUpdated = PaymentModel.update(ref_no, date, stid,type);
+            boolean isUpdated = paymentBO.updatePayment(new PaymentDTO(ref_no, date, stid,type));
             if (isUpdated) {
 
                 new Alert(Alert.AlertType.CONFIRMATION, "huree! Payment Updated!").show();
@@ -144,7 +146,7 @@ public class PaymentsWindowController implements Initializable {
     public void btnSearchOnAction(ActionEvent actionEvent) {
         String code = txtRefNo.getText();
         try {
-            PaymentDTO payment = PaymentModel.search(code);
+            PaymentDTO payment = paymentBO.searchPayment(code);
             if (payment != null) {
                 txtRefNo.setText(payment.getRef_no());
                 dtpckrDate.setValue(LocalDate.parse(payment.getDate()));
@@ -242,7 +244,7 @@ public class PaymentsWindowController implements Initializable {
 
    private void getAllPaymentsToTable(String searchText) {
         try {
-            List<PaymentDTO> paymentList = PaymentModel.getAll();
+            List<PaymentDTO> paymentList = paymentBO.getAllPayments();
             for(PaymentDTO payment : paymentList) {
                 if (payment.getDate().contains(searchText) || payment.getStid().contains(searchText)){  //Check pass text contains of the supName
                     JFXButton btnDel=new JFXButton("Delete");
