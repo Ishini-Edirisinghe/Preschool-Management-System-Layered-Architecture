@@ -1,14 +1,11 @@
 package lk.ijse.preschool.bo.costom.Impl;
 
-import lk.ijse.preschool.DAO.DAOFactory;
-import lk.ijse.preschool.DAO.custom.PaymentDAO;
-import lk.ijse.preschool.DAO.custom.SyllabusDAO;
+import lk.ijse.preschool.dao.DAOFactory;
+import lk.ijse.preschool.dao.custom.PaymentDAO;
 import lk.ijse.preschool.bo.costom.PaymentBO;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.PaymentDTO;
-import lk.ijse.preschool.dto.SyllabusDTO;
 import lk.ijse.preschool.entity.Payment;
-import lk.ijse.preschool.entity.Syllabus;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

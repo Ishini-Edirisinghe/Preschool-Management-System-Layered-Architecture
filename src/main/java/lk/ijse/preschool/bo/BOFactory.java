@@ -1,9 +1,5 @@
 package lk.ijse.preschool.bo;
 
-import lk.ijse.preschool.DAO.DAOFactory;
-import lk.ijse.preschool.DAO.SuperDAO;
-import lk.ijse.preschool.DAO.custom.DAOImpl.StudentDAOImpl;
-import lk.ijse.preschool.DAO.custom.DAOImpl.TeacherDAOImpl;
 import lk.ijse.preschool.bo.costom.Impl.*;
 
 public class BOFactory {
@@ -17,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT
+        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT,SKILLSTATUS
     }
 
     public <T> T  getBO(BOTypes boTypes) {
@@ -32,8 +28,8 @@ public class BOFactory {
                 return (T) new SyllabusBOImpl();
             case PAYMENT:
                 return (T) new PaymentBOImpl();
-           /*   case QUERY_DAO:
-                return new QueryDAOImpl();*/
+            case SKILLSTATUS:
+                return (T)new SkillStatusBOImpl();
             default:
                 return null;
         }

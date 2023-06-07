@@ -14,14 +14,13 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.SkillStatusBO;
 import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.bo.costom.TeacherBo;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.SkillStatusDTO;
 import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.dto.tm.StudentTM;
-import lk.ijse.preschool.model.PlaceStudentModel;
-import lk.ijse.preschool.model.SkillStatusModel;
 import lk.ijse.preschool.util.Regex;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
@@ -121,6 +120,7 @@ public class ManageStudentWindowController implements Initializable {
     private StudentBO studentBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
 
     private TeacherBo teacherBo =BOFactory.getInstance().getBO(BOFactory.BOTypes.TEACHER);
+    private SkillStatusBO skillStatusBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.SKILLSTATUS);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -141,7 +141,7 @@ public class ManageStudentWindowController implements Initializable {
                 try {
                     StudentDTO student = studentBO.searchStudent(studentId);
                   //  txtStudentName.setText(student.getName());
-                    SkillStatusDTO skillStatus= SkillStatusModel.search(studentId);
+                    SkillStatusDTO skillStatus= skillStatusBO.search(studentId);
 
                     if (skillStatus!=null){
                         cmbWriting.setValue(skillStatus.getWriting());
@@ -287,7 +287,7 @@ public class ManageStudentWindowController implements Initializable {
 
         if (btnSaveStudent.getText().equalsIgnoreCase("Save")){
             try {
-                Boolean placeStudent = PlaceStudentModel.PlaceStudent(s2, s1);
+                Boolean placeStudent = studentBO.PlaceStudent(s2, s1);
                 if (placeStudent) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Student saved!!!").show();
                     tblStudent.getItems().clear();

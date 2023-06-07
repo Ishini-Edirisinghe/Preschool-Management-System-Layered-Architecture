@@ -16,18 +16,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import lk.ijse.preschool.model.SkillStatusModel;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.SkillStatusBO;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.text.NumberFormat;
-import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardWindowController implements Initializable {
@@ -48,6 +45,8 @@ public class DashboardWindowController implements Initializable {
 
     @FXML
     private BarChart<String,Number> barChartSkills;
+    private SkillStatusBO skillStatusBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.SKILLSTATUS);
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -86,9 +85,9 @@ public class DashboardWindowController implements Initializable {
             for (int i = 0; i < subjectNames.length; i++) {
                 String subject = subjectNames[i];
 
-                int excellentCount = SkillStatusModel.getStatusCount(subject,"Excellent");
-                int goodCount = SkillStatusModel.getStatusCount(subject,"Good");
-                int weakCount = SkillStatusModel.getStatusCount(subject,"Weak");
+                int excellentCount = skillStatusBO.getStatusCount(subject,"Excellent");
+                int goodCount = skillStatusBO.getStatusCount(subject,"Good");
+                int weakCount = skillStatusBO.getStatusCount(subject,"Weak");
 
                 seriesExcellent.getData().add(new XYChart.Data<>(subject, excellentCount));
                 seriesGood.getData().add(new XYChart.Data<>(subject, goodCount));

@@ -8,11 +8,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.SkillStatusBO;
 import lk.ijse.preschool.bo.costom.StudentBO;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.SkillStatusDTO;
 import lk.ijse.preschool.dto.StudentDTO;
-import lk.ijse.preschool.model.SkillStatusModel;
+import lk.ijse.preschool.entity.SkillStatus;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
@@ -23,7 +24,6 @@ import java.net.URL;
 import java.nio.file.FileSystems;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentSkillStatusWindowController implements Initializable {
@@ -59,6 +59,7 @@ public class StudentSkillStatusWindowController implements Initializable {
     private static ObservableList<String> items = FXCollections.observableArrayList("Excellent", "Good", "Weak");
 
     private StudentBO studentBO = BOFactory.getInstance().getBO(BOFactory.BOTypes.STUDENT);
+    private SkillStatusBO skillStatusBO =BOFactory.getInstance().getBO(BOFactory.BOTypes.SKILLSTATUS);
 
 
     @Override
@@ -99,7 +100,8 @@ public class StudentSkillStatusWindowController implements Initializable {
         try {
             StudentDTO student = studentBO.searchStudent(studentId);
             txtStudentName.setText(student.getName());
-            SkillStatusDTO skillStatus=SkillStatusModel.search(studentId);
+            SkillStatusDTO skillStatus=skillStatusBO.search(studentId);
+            //ArrayList<String> skillStatus= skillStatusBO.getStatus();
 
             if (skillStatus!=null){
                 cmbWritingStatus.setValue(skillStatus.getWriting());
@@ -108,6 +110,8 @@ public class StudentSkillStatusWindowController implements Initializable {
                 cmbDrawingStatus.setValue(skillStatus.getDrawing());
                 cmbCraftingStatus.setValue(skillStatus.getCrafting());
                 cmbCountngStatus.setValue(skillStatus.getCrafting());
+                loadStid();
+                loadStatus();
             }else{
                 cmbWritingStatus.getItems().clear();
                 cmbDrawingStatus.getItems().clear();
@@ -142,7 +146,7 @@ public class StudentSkillStatusWindowController implements Initializable {
         boolean isSaved;
 
             try {
-                isSaved = SkillStatusModel.save(id, name,counting, crafting,drawing, reading,singing, writing);
+                isSaved = skillStatusBO.add(new SkillStatusDTO(id,name,counting, crafting,drawing, reading,singing, writing) );
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Student Skills saved!!!").show();
                   //  tblStudent.getItems().clear();
@@ -169,11 +173,13 @@ public class StudentSkillStatusWindowController implements Initializable {
         String writing = cmbWritingStatus.getSelectionModel().getSelectedItem();
 
             try {
-                boolean isUpdated = SkillStatusModel.update(id, name,counting, crafting,drawing, reading,singing, writing);
+                boolean isUpdated = skillStatusBO.update(new SkillStatusDTO(id,name,counting, crafting,drawing, reading,singing, writing));
                 if (isUpdated) {
 
                     new Alert(Alert.AlertType.CONFIRMATION, "huree! Student Skill Updated!").show();
                   //  cmbStIdOnActon(event);
+                }else{
+                    System.out.println("hello");
                 }
             } catch (SQLException | ClassNotFoundException e) {
                     new Alert(Alert.AlertType.ERROR, "oops! something happened!").show();

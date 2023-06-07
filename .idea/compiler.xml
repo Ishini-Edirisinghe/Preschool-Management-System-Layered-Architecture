@@ -10,8 +10,5 @@
         <module name="preschool_management_system" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="preschool_management_system" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

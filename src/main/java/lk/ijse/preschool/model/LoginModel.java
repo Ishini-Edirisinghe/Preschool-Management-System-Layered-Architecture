@@ -1,6 +1,6 @@
 package lk.ijse.preschool.model;
 
-import lk.ijse.preschool.DAO.SQLUtil;
+import lk.ijse.preschool.dao.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

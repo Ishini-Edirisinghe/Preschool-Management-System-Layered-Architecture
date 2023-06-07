@@ -1,6 +1,7 @@
 package lk.ijse.preschool.bo.costom;
 
 import lk.ijse.preschool.bo.SuperBO;
+import lk.ijse.preschool.dto.SkillStatusDTO;
 import lk.ijse.preschool.dto.StudentDTO;
 
 import java.sql.SQLException;
@@ -22,4 +23,5 @@ public interface StudentBO extends SuperBO {
     public boolean deleteStudent(String id) throws SQLException, ClassNotFoundException;
 
     public StudentDTO searchStudent(String id) throws SQLException, ClassNotFoundException;
+    public Boolean PlaceStudent(StudentDTO s1, SkillStatusDTO s2) throws SQLException;
 }

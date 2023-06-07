@@ -4,87 +4,150 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="4a1bb289-3399-4018-8746-902d59be682d" name="Changes" comment="teacher implementation with errors">
+    <list default="true" id="8e5c1d4f-895d-41d9-afa9-f1523cdfe735" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_xml_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_woodstox_woodstox_core_6_4_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_librepdf_openpdf_1_3_30_jaspersoft_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_21_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jfoenix_jfoenix_9_0_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mysql_mysql_connector_j_8_0_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_mail_javax_mail_1_6_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_digester_commons_digester_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jasperreports_jasperreports_6_20_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_woodstox_stax2_api_4_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_21_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19_0_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_26.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preschool_management_system.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/CrudDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/SQLUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/SQLUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/SuperDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/SuperDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/DAOImpl/EventDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/DAOImpl/EventDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/DAOImpl/PaymentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/DAOImpl/PaymentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/DAOImpl/StudentDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/DAOImpl/StudentDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/DAOImpl/SyllabusDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/DAOImpl/SyllabusDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/DAOImpl/TeacherDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/DAOImpl/TeacherDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/EventDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/EventDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/PaymentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/PaymentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/StudentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/StudentDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/SyllabusDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/SyllabusDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/DAO/custom/TeacherDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dao/custom/TeacherDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/BOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/EventWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/EventWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/EventBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/EventBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/PaymentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/PaymentBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/StudentBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/StudentBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/SyllabusBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/SyllabusBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/TeacherBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/Impl/TeacherBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/StudentBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/StudentBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/SyllabusBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/bo/costom/SyllabusBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/DashboardWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/DashboardWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageStudentWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/ManageStudentWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/PaymentsWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/PaymentsWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/StudentSkillStatusWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/StudentSkillStatusWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/SyllabusWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/controller/SyllabusWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dto/SyllabusDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/dto/SyllabusDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Syllabus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/Syllabus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/EventModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/PaymentModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/SyllabusModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/SkillStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/entity/SkillStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/LoginModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/LoginModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/PlaceStudentModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/preschool/model/SkillStatusModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/CrudDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/CrudDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$DAOTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory$DAOTypes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/SQLUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/SQLUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/SuperDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/SuperDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/EventDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/EventDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/PaymentDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/PaymentDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/StudentDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/StudentDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/SyllabusDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/SyllabusDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/TeacherDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/DAOImpl/TeacherDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/EventDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/EventDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/PaymentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/PaymentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/StudentDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/StudentDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/SyllabusDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/SyllabusDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/TeacherDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/DAO/custom/TeacherDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$BOTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory$BOTypes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/BOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/EventWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/EventWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/EventBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/EventBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/PaymentBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/PaymentBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/StudentBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/StudentBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/SyllabusBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/SyllabusBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/TeacherBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/Impl/TeacherBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/StudentBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/StudentBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/SyllabusBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/bo/costom/SyllabusBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/DashboardWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/DashboardWindowController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/ManageStudentWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/ManageStudentWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/Event.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/Event.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/EventModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/StudentSkillStatusWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/StudentSkillStatusWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/SyllabusWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/controller/SyllabusWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/SkillStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/entity/SkillStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/LoginModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/LoginModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/PlaceStudentModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/preschool/model/SkillStatusModel.class" beforeDir="false" />
     </list>
-=======
-    <list default="true" id="4a1bb289-3399-4018-8746-902d59be682d" name="Changes" comment="teacher implementation with errors" />
->>>>>>> origin/master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
-  <component name="ProjectId" id="2QghE7MZs56pPhVo90GsLlOqjKd" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2QsuX5wto59ghNQMBYbYw0Ybokm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Layered/working/New folder/Layered-Project/Layered_Architecture" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="H:\2nd semester\Layered Architecture Module\first sem proj to layered archi\Little Sunshine_Project\src\main\java\lk\ijse\preschool\entity" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="lk.ijse.preschool.DAO" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="AppInitializer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppInitializer" />
       <module name="preschool_management_system" />
       <option name="VM_PARAMETERS" value="--module-path &quot;H:\Software\javafx-sdk-19.0.2.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -98,61 +161,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4a1bb289-3399-4018-8746-902d59be682d" name="Changes" comment="" />
-      <created>1685781019818</created>
+      <changelist id="8e5c1d4f-895d-41d9-afa9-f1523cdfe735" name="Changes" comment="" />
+      <created>1686154652731</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1685781019818</updated>
-      <workItem from="1685781021725" duration="3096000" />
-      <workItem from="1685793536095" duration="847000" />
-      <workItem from="1685796544232" duration="3886000" />
-      <workItem from="1685805849651" duration="290000" />
-      <workItem from="1685808003905" duration="3848000" />
-      <workItem from="1685888181586" duration="188000" />
-      <workItem from="1685939677702" duration="16307000" />
-      <workItem from="1685957380691" duration="759000" />
-<<<<<<< HEAD
-      <workItem from="1685981472565" duration="8246000" />
-      <workItem from="1686024930624" duration="113000" />
-      <workItem from="1686025836748" duration="8906000" />
-      <workItem from="1686072374349" duration="8881000" />
-=======
-      <workItem from="1685981472565" duration="7906000" />
->>>>>>> origin/master
+      <updated>1686154652731</updated>
+      <workItem from="1686154665246" duration="318000" />
+      <workItem from="1686155001875" duration="10318000" />
+      <workItem from="1686165441137" duration="439000" />
     </task>
-    <task id="LOCAL-00001" summary="StudentDAO and StudentBO completed">
-      <created>1685958007591</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685958007591</updated>
-    </task>
-    <task id="LOCAL-00002" summary="teacher implementation with errors">
-      <created>1685989598488</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1685989598488</updated>
-    </task>
-    <task id="LOCAL-00003" summary="teacher implementation with errors">
-      <created>1685989644307</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1685989644307</updated>
-    </task>
-<<<<<<< HEAD
-    <task id="LOCAL-00004" summary="teacher implementation with errors">
-      <created>1685989725147</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1685989725147</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
-=======
-    <option name="localTasksCounter" value="4" />
->>>>>>> origin/master
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,10 +186,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="StudentDAO and StudentBO completed" />
-    <MESSAGE value="teacher implementation with errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="teacher implementation with errors" />
   </component>
 </project>

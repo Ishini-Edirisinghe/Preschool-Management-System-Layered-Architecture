@@ -1,13 +1,10 @@
 package lk.ijse.preschool.bo.costom.Impl;
 
-import lk.ijse.preschool.DAO.DAOFactory;
-import lk.ijse.preschool.DAO.custom.StudentDAO;
-import lk.ijse.preschool.DAO.custom.TeacherDAO;
+import lk.ijse.preschool.dao.DAOFactory;
+import lk.ijse.preschool.dao.custom.TeacherDAO;
 import lk.ijse.preschool.bo.costom.TeacherBo;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.dto.TeacherDTO;
-import lk.ijse.preschool.entity.Student;
 import lk.ijse.preschool.entity.Teacher;
 
 import java.sql.ResultSet;

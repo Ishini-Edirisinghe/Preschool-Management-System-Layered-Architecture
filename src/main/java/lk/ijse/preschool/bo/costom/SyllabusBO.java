@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public interface SyllabusBO extends SuperBO {
     public ArrayList<SyllabusDTO> getAllSyllabus() throws SQLException, ClassNotFoundException;
 
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<SyllabusDTO> getAll() throws SQLException, ClassNotFoundException;
 
     public boolean addSyllabus(SyllabusDTO dto) throws SQLException, ClassNotFoundException;
 

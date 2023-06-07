@@ -1,14 +1,11 @@
 package lk.ijse.preschool.bo.costom.Impl;
 
-import lk.ijse.preschool.DAO.DAOFactory;
-import lk.ijse.preschool.DAO.custom.EventDAO;
-import lk.ijse.preschool.DAO.custom.StudentDAO;
+import lk.ijse.preschool.dao.DAOFactory;
+import lk.ijse.preschool.dao.custom.EventDAO;
 import lk.ijse.preschool.bo.costom.EventBO;
 import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.dto.EventDTO;
-import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.entity.Event;
-import lk.ijse.preschool.entity.Student;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

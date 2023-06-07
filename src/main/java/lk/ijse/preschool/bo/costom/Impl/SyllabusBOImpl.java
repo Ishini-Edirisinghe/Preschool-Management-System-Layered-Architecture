@@ -1,13 +1,12 @@
 package lk.ijse.preschool.bo.costom.Impl;
 
-import lk.ijse.preschool.DAO.DAOFactory;
-import lk.ijse.preschool.DAO.custom.EventDAO;
-import lk.ijse.preschool.DAO.custom.SyllabusDAO;
+import lk.ijse.preschool.dao.DAOFactory;
+import lk.ijse.preschool.dao.custom.SyllabusDAO;
 import lk.ijse.preschool.bo.costom.SyllabusBO;
 import lk.ijse.preschool.db.DBConnection;
-import lk.ijse.preschool.dto.EventDTO;
+import lk.ijse.preschool.dto.StudentDTO;
 import lk.ijse.preschool.dto.SyllabusDTO;
-import lk.ijse.preschool.entity.Event;
+import lk.ijse.preschool.entity.Student;
 import lk.ijse.preschool.entity.Syllabus;
 
 import java.sql.ResultSet;
@@ -28,15 +27,13 @@ public class SyllabusBOImpl implements SyllabusBO {
     }
 
     @Override
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> codes = new ArrayList<>();
-
-        String sql = "SELECT * FROM syllabus WHERE subject_id = ?";
-        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
-        while(resultSet.next()) {
-            codes.add(resultSet.getString(1));
+    public ArrayList<SyllabusDTO> getAll() throws SQLException, ClassNotFoundException {
+        ArrayList<Syllabus> SyllabusAll = syllabusDAO.getAll();
+        ArrayList<SyllabusDTO> syllabusDTOS = new ArrayList<>();
+        for (Syllabus syllabus : SyllabusAll) {
+            syllabusDTOS.add(new SyllabusDTO(syllabus.getSubject_id(),syllabus.getSub_name()));
         }
-        return codes;
+        return syllabusDTOS;
     }
 
     @Override
