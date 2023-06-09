@@ -205,7 +205,7 @@ public class StudentSkillStatusWindowController implements Initializable {
     void btnReportOnAction(ActionEvent event) {
         Thread t1=new Thread(
                 () -> {
-                    String reportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\remedialreport.jrxml";
+                    String reportPath = "H:\\2nd semester\\Layered Architecture Module\\first sem proj to layered archi\\Little Sunshine_Project\\src\\main\\resources\\reports\\remedialreport.jrxml";
                     String sql="SELECT stId, stName,counting,crafting,drawing,reading,singing,writing \n" +
                             "FROM student_skill_status\n" +
                             "WHERE counting = 'Weak' \n" +

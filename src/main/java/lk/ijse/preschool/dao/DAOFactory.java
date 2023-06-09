@@ -13,7 +13,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT,SKILLSTATUS
+        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT,SKILLSTATUS,USER
     }
 
     public <T> T  getDAO(DAOTypes daoTypes) {
@@ -30,6 +30,8 @@ public class DAOFactory {
                 return (T) new PaymentDAOImpl();
             case SKILLSTATUS:
                 return (T)new SkillStatusDAOImpl();
+            case USER:
+                return (T)new LoginDAOImpl();
             default:
                 return null;
         }

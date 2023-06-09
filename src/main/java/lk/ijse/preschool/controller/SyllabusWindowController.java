@@ -10,6 +10,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import lk.ijse.preschool.bo.BOFactory;
 import lk.ijse.preschool.dao.DAOFactory;
 import lk.ijse.preschool.bo.costom.SyllabusBO;
 import lk.ijse.preschool.db.DBConnection;
@@ -53,7 +54,7 @@ public class SyllabusWindowController implements Initializable {
     private ObservableList<SyllabusTM> obList = FXCollections.observableArrayList();
     private String searchText="";
 
-    private SyllabusBO syllabusBO= DAOFactory.getInstance().getDAO(DAOFactory.DAOTypes.SYLLABUS);
+    private SyllabusBO syllabusBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.SYLLABUS);
 
 
     @Override
@@ -227,7 +228,7 @@ public class SyllabusWindowController implements Initializable {
     void btnGetReportOnAction(ActionEvent event) {
         Thread t1=new Thread(
                 () -> {
-                    String reportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\syllabus.jrxml";
+                    String reportPath = "H:\\2nd semester\\Layered Architecture Module\\first sem proj to layered archi\\Little Sunshine_Project\\src\\main\\resources\\reports\\syllabus.jrxml";
                     String sql="select * from syllabus";
                     String path = FileSystems.getDefault().getPath("/reports/syllabus.jrxml").toAbsolutePath().toString();
                     JasperDesign jasdi = null;

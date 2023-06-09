@@ -11,7 +11,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.preschool.model.LoginModel;
+import lk.ijse.preschool.bo.BOFactory;
+import lk.ijse.preschool.bo.costom.LoginBO;
+import lk.ijse.preschool.bo.costom.SyllabusBO;
+import lk.ijse.preschool.dao.DAOFactory;
 import lk.ijse.preschool.util.Regex;
 
 import java.io.IOException;
@@ -28,6 +31,7 @@ public class LoginWindowController implements Initializable {
 
     @FXML
     private TextField txtUserName;
+    private LoginBO loginBO= BOFactory.getInstance().getBO(BOFactory.BOTypes.USER);
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) loginContext.getScene().getWindow();
@@ -41,7 +45,7 @@ public class LoginWindowController implements Initializable {
 
             boolean isUserVerified ; //check in the DB
             try {
-                isUserVerified = LoginModel.userCheckedInDB(username,password);
+                isUserVerified = loginBO.userCheckedInDB(username,password);
                 if (isUserVerified) {
 
                     new Alert(Alert.AlertType.CONFIRMATION, "Login successful!").showAndWait();

@@ -308,7 +308,7 @@ public class PaymentsWindowController implements Initializable {
     void btnGetReportOnAction(ActionEvent event) {
         Thread t1=new Thread(
                 () -> {
-                    String ReportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\paymentreport.jrxml";
+                    String ReportPath = "H:\\2nd semester\\Layered Architecture Module\\first sem proj to layered archi\\Little Sunshine_Project\\src\\main\\resources\\reports\\paymentreport.jrxml";
                     String sql="select * from payment";
                     String path = FileSystems.getDefault().getPath("/reports/paymentreport.jrxml").toAbsolutePath().toString();
                     JasperDesign jasdi = null;

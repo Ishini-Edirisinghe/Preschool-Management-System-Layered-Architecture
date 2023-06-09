@@ -524,7 +524,7 @@ public class ManageStudentWindowController implements Initializable {
     void btnGetReportOnAction(ActionEvent event) {
         Thread t1=new Thread(
                 () -> {
-                    String reportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\studentReport.jrxml";
+                    String reportPath = "H:\\2nd semester\\Layered Architecture Module\\first sem proj to layered archi\\Little Sunshine_Project\\src\\main\\resources\\reports\\studentReport.jrxml";
                     String sql="select * from student";
                     String path = FileSystems.getDefault().getPath("/reports/studentReport.jrxml").toAbsolutePath().toString();
                     JasperDesign jasdi = null;

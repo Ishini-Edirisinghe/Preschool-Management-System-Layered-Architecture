@@ -220,7 +220,7 @@ public class EventWindowController implements Initializable {
     void btnGetReportOnAction(ActionEvent event) {
         Thread t1=new Thread(
                 () -> {
-                    String ReportPath = "H:\\MY FIRST PROJECT =)\\Little Sunshine_Project\\src\\main\\resources\\reports\\eventreport.jrxml";
+                    String ReportPath = "H:\\2nd semester\\Layered Architecture Module\\first sem proj to layered archi\\Little Sunshine_Project\\src\\main\\resources\\reports\\eventreport.jrxml";
                     String sql="select * from event";
                     String path = FileSystems.getDefault().getPath("/reports/eventreport.jrxml").toAbsolutePath().toString();
                     JasperDesign jasdi = null;

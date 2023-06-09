@@ -13,7 +13,7 @@ public class BOFactory {
     }
 
     public enum BOTypes {
-        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT,SKILLSTATUS
+        STUDENT,TEACHER,EVENT,SYLLABUS,PAYMENT,SKILLSTATUS,USER
     }
 
     public <T> T  getBO(BOTypes boTypes) {
@@ -30,6 +30,8 @@ public class BOFactory {
                 return (T) new PaymentBOImpl();
             case SKILLSTATUS:
                 return (T)new SkillStatusBOImpl();
+            case USER:
+                return (T)new LoginBOImpl();
             default:
                 return null;
         }
