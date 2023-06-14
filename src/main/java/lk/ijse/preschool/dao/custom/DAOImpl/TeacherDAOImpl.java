@@ -50,7 +50,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override

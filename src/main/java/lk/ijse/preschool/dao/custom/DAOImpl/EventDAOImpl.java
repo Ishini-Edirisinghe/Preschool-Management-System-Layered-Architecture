@@ -2,6 +2,7 @@ package lk.ijse.preschool.dao.custom.DAOImpl;
 
 import lk.ijse.preschool.dao.SQLUtil;
 import lk.ijse.preschool.dao.custom.EventDAO;
+import lk.ijse.preschool.db.DBConnection;
 import lk.ijse.preschool.entity.Event;
 
 import java.sql.ResultSet;
@@ -41,12 +42,12 @@ public class EventDAOImpl implements EventDAO {
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
@@ -69,4 +70,16 @@ public class EventDAOImpl implements EventDAO {
         }
         return null;
     }
+
+ /*   @Override
+    public ArrayList<String> getIds() throws SQLException {
+        ArrayList<String> codes = new ArrayList<>();
+
+        String sql = "SELECT * FROM event WHERE event_no = ?";
+        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
+        while(resultSet.next()) {
+            codes.add(resultSet.getString(1));
+        }
+        return codes;
+    }*/
 }

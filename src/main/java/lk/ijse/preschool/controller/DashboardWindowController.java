@@ -117,44 +117,12 @@ public class DashboardWindowController implements Initializable {
         timeline2.play();
     }
 
-    @FXML
-    void btnEventOnAction(ActionEvent event) throws IOException {
-        Parent load= FXMLLoader.load(getClass().getResource("/view/event-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
-    }
+    private void setUI(String location) throws IOException { //less boiler plate code
 
-    @FXML
-    void btnManageStudentOnAction(ActionEvent event) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/manage-student-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
-    }
-    @FXML
-        void btnPaymentOnAction(ActionEvent event) throws IOException {
-        Parent load = FXMLLoader.load(getClass().getResource("/view/payments-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
-    }
-
-    @FXML
-    void btnManageTeacherOnAction(ActionEvent event) throws IOException {
-    Parent load =FXMLLoader.load(getClass().getResource("/view/manage-teacher-window-view.fxml"));
-    dashboardAnchorPane.getChildren().clear();
-    dashboardAnchorPane.getChildren().add(load);
-    }
-    @FXML
-    void btnSyllabusOnAction(ActionEvent event) throws IOException {
-        Parent load= FXMLLoader.load(getClass().getResource("/view/syllabus-window-view.fxml"));
+        Parent load = FXMLLoader.load(getClass().getResource(location));
         dashboardAnchorPane.getChildren().clear();
         dashboardAnchorPane.getChildren().add(load);
 
-    }
-    @FXML
-    void btnStudentSkillsStatusOnAction(ActionEvent event) throws IOException {
-        Parent load= FXMLLoader.load(getClass().getResource("/view/student-skill-status-window-view.fxml"));
-        dashboardAnchorPane.getChildren().clear();
-        dashboardAnchorPane.getChildren().add(load);
     }
 
     public void btnDashboardOnAction(ActionEvent actionEvent) throws IOException {
@@ -166,6 +134,32 @@ public class DashboardWindowController implements Initializable {
 
     }
 
+    @FXML
+    void btnEventOnAction(ActionEvent event) throws IOException {
+        setUI("/view/event-window-view.fxml");
+    }
+
+    @FXML
+    void btnManageStudentOnAction(ActionEvent event) throws IOException {
+       setUI("/view/manage-student-window-view.fxml");
+    }
+    @FXML
+        void btnPaymentOnAction(ActionEvent event) throws IOException {
+        setUI("/view/payments-window-view.fxml");
+    }
+
+    @FXML
+    void btnManageTeacherOnAction(ActionEvent event) throws IOException {
+    setUI("/view/manage-teacher-window-view.fxml");
+    }
+    @FXML
+    void btnSyllabusOnAction(ActionEvent event) throws IOException {
+       setUI("/view/syllabus-window-view.fxml");
+    }
+    @FXML
+    void btnStudentSkillsStatusOnAction(ActionEvent event) throws IOException {
+       setUI("/view/student-skill-status-window-view.fxml");
+    }
     public void btnLogoutOnAction(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage) dashboardMainAnchorPane.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/login-window-view.fxml"))));

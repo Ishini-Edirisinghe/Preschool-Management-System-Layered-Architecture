@@ -30,17 +30,17 @@ public class SkillStatusDAOImpl implements SkillStatusDAO {
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override

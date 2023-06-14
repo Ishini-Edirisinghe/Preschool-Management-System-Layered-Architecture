@@ -25,15 +25,8 @@ public class TeacherBOImpl implements TeacherBo {
     }
 
     @Override
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> codes = new ArrayList<>();
-
-        String sql = "SELECT teachId FROM teacher";
-        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
-        while(resultSet.next()) {
-            codes.add(resultSet.getString(1));
-        }
-        return codes;
+    public ArrayList<String> getTeacherIds() throws SQLException, ClassNotFoundException {
+        return teacherDAO.getIds();
     }
 
     @Override

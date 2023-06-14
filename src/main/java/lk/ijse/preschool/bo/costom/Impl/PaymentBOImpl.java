@@ -24,16 +24,6 @@ public class PaymentBOImpl implements PaymentBO {
         return paymentDTOS;
     }
 
-    @Override
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> codes = new ArrayList<>();
-
-        String sql = "SELECT * FROM payment WHERE ref_no = ?";
-        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
-        while(resultSet.next()) {
-            codes.add(resultSet.getString(1));
-        }
-        return codes;    }
 
     @Override
     public boolean addPayment(PaymentDTO dto) throws SQLException, ClassNotFoundException {

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public interface EventBO extends SuperBO {
     public ArrayList<EventDTO> getAllEvents() throws SQLException, ClassNotFoundException;
 
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException;
+   // public ArrayList<String> getIds() throws SQLException, ClassNotFoundException;
 
     public boolean addEvent(EventDTO dto) throws SQLException, ClassNotFoundException;
 

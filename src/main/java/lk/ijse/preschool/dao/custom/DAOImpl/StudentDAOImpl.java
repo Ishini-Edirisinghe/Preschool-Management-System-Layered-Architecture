@@ -41,16 +41,17 @@ public class StudentDAOImpl implements StudentDAO {
     @Override
     public boolean update(Student dto) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE student SET  name = ?, address = ?,DOB=?,contact=?,parentsName=?,teachId=? WHERE stid = ?";
-        return SQLUtil.execute(sql,dto.getName(), dto.getAddress(),dto.getDOB(), dto.getContact(),dto.getParentName(),dto.getTeachId(),dto.getStId());    }
+        return SQLUtil.execute(sql,dto.getName(), dto.getAddress(),dto.getDOB(), dto.getContact(),dto.getParentName(),dto.getTeachId(),dto.getStId());
+    }
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override

@@ -29,15 +29,8 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> codes = new ArrayList<>();
-
-        String sql = "SELECT stid FROM student";
-        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
-        while(resultSet.next()) {
-            codes.add(resultSet.getString(1));
-        }
-        return codes;
+    public ArrayList<String> getStudentIds() throws SQLException, ClassNotFoundException {
+        return studentDAO.getIds();
     }
 
     @Override

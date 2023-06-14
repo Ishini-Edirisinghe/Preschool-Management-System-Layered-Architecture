@@ -24,18 +24,6 @@ public class EventBOImpl implements EventBO {
     }
 
     @Override
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException {
-        ArrayList<String> codes = new ArrayList<>();
-
-        String sql = "SELECT * FROM event WHERE event_no = ?";
-        ResultSet resultSet = DBConnection.getInstance().getConnection().createStatement().executeQuery(sql);
-        while(resultSet.next()) {
-            codes.add(resultSet.getString(1));
-        }
-        return codes;
-    }
-
-    @Override
     public boolean addEvent(EventDTO dto) throws SQLException, ClassNotFoundException {
         return eventDAO.add(new Event(dto.getEvent_no(), dto.getName(), dto.getMonth()));
     }

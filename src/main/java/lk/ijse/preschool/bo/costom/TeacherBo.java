@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public interface TeacherBo extends SuperBO {
     public ArrayList<TeacherDTO> getAllTeachers() throws SQLException, ClassNotFoundException;
 
-    public ArrayList<String> getIds() throws SQLException, ClassNotFoundException;
+    public ArrayList<String> getTeacherIds() throws SQLException, ClassNotFoundException;
 
     public boolean addTeacher(TeacherDTO dto) throws SQLException, ClassNotFoundException;
 

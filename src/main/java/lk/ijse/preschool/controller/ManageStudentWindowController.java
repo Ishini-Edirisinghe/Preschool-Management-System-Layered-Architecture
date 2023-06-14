@@ -321,7 +321,7 @@ public class ManageStudentWindowController implements Initializable {
     }
     private void loadTeacherids(){
         try {
-            List<String> ids = teacherBo.getIds();
+            List<String> ids = teacherBo.getTeacherIds();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             for (String id : ids) {

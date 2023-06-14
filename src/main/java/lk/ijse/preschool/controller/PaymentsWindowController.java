@@ -180,7 +180,7 @@ public class PaymentsWindowController implements Initializable {
 
     private void loadStid() {
         try {
-            ArrayList<String>  ids = studentBO.getIds();
+            ArrayList<String>  ids = studentBO.getStudentIds();
             ObservableList<String> obList = FXCollections.observableArrayList();
 
             for (String id : ids) {

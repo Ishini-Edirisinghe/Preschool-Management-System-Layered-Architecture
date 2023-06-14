@@ -11,38 +11,43 @@ import java.util.ArrayList;
 public class LoginDAOImpl implements LoginDAO {
     @Override
     public ArrayList<User> getAll() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public boolean add(User dto) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public boolean update(User dto) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public boolean exist(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public String generateNewId() throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return false;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
 
     @Override
     public User search(String id) throws SQLException, ClassNotFoundException {
-        return null;
+        throw new UnsupportedOperationException("This feature is not implemented yet");
     }
+
+    /*@Override
+    public ArrayList<String> getIds() throws SQLException {
+        return null;
+    }*/
 
     @Override
     public boolean userCheckedInDB(String username, String password) throws SQLException, ClassNotFoundException {

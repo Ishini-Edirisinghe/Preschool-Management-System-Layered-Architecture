@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class DBConnection {
+public class
+DBConnection {
     private final static String URL = "jdbc:mysql://localhost:3306/preschool";
     private final static Properties props = new Properties();
 
